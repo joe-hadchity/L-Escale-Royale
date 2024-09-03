@@ -10,8 +10,17 @@ builder.Services.AddControllersWithViews();
 builder.Services.Configure<DatabaseSettings>(
     builder.Configuration.GetSection(nameof(DatabaseSettings)));
 
+// Register MongoClient with specific connection string
 builder.Services.AddSingleton<IMongoClient>(s =>
-    new MongoClient(builder.Configuration.GetValue<string>("MongoDB:ConnectionString")));
+    new MongoClient("mongodb+srv://joehadchity:J1j2j3j4@escale-royale-cluster.lann0.mongodb.net/?retryWrites=true&w=majority&authSource=admin&authMechanism=SCRAM-SHA-1&appName=escale-royale-cluster"));
+
+// Register IMongoDatabase
+builder.Services.AddSingleton(s =>
+{
+    var client = s.GetRequiredService<IMongoClient>();
+    var databaseName = builder.Configuration.GetValue<string>("MongoDB:DatabaseName");
+    return client.GetDatabase(databaseName);
+});
 
 var app = builder.Build();
 
