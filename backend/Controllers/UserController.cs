@@ -4,6 +4,7 @@ using backend.Models;
 using MongoDB.Bson;
 using System.Diagnostics;
 using System.Text.Json;
+using Microsoft.AspNetCore.Identity.Data;
 
 namespace backend.Controllers
 {
@@ -135,6 +136,32 @@ namespace backend.Controllers
             return Json(document.ToJson());
         }
 
+
+        [HttpPost("login")]
+        public IActionResult Login([FromBody] Login loginRequest)
+        {
+            // Check if the request body is null
+            if (loginRequest == null)
+            {
+                return BadRequest("Invalid login request.");
+            }
+
+            // Get the collection from the database
+            var collection = _database.GetCollection<User>("User");
+            var filter = Builders<User>.Filter.And(
+                Builders<User>.Filter.Eq("username", loginRequest.Username),
+                Builders<User>.Filter.Eq("pin", loginRequest.Pin)
+            );
+            var user = collection.Find(filter).FirstOrDefault();
+
+            if (user == null)
+            {
+                return NotFound("No matching documents found.");
+            }
+
+            // Return the matching user
+            return Ok(user);
+        }
 
 
 
