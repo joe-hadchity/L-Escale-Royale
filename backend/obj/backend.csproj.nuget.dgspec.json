@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\hadch\\Documents\\L-Escale-Royale\\backend\\backend.csproj": {}
+    "C:\\Users\\antho\\Desktop\\dotdevfolder\\pos\\L-Escale-Royale\\backend\\backend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\hadch\\Documents\\L-Escale-Royale\\backend\\backend.csproj": {
+    "C:\\Users\\antho\\Desktop\\dotdevfolder\\pos\\L-Escale-Royale\\backend\\backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hadch\\Documents\\L-Escale-Royale\\backend\\backend.csproj",
+        "projectUniqueName": "C:\\Users\\antho\\Desktop\\dotdevfolder\\pos\\L-Escale-Royale\\backend\\backend.csproj",
         "projectName": "backend",
-        "projectPath": "C:\\Users\\hadch\\Documents\\L-Escale-Royale\\backend\\backend.csproj",
-        "packagesPath": "C:\\Users\\hadch\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hadch\\Documents\\L-Escale-Royale\\backend\\obj\\",
+        "projectPath": "C:\\Users\\antho\\Desktop\\dotdevfolder\\pos\\L-Escale-Royale\\backend\\backend.csproj",
+        "packagesPath": "C:\\Users\\antho\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\antho\\Desktop\\dotdevfolder\\pos\\L-Escale-Royale\\backend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\hadch\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\antho\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -34,6 +34,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -64,7 +69,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
