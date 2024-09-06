@@ -47,6 +47,7 @@ namespace backend.Controllers
         [HttpPost("Create")]
         public IActionResult Create([FromBody] JsonElement jsonElement)
         {
+            int x = 8;
             // Convert the JSON element to a JSON string
             string jsonString = jsonElement.GetRawText();
 
