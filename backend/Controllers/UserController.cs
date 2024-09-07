@@ -22,6 +22,7 @@ namespace backend.Controllers
 
         public IActionResult Index()
         {
+            int x = 0;
             var collection = _database.GetCollection<BsonDocument>("User");
             var documents = collection.Find(new BsonDocument()).ToList();
 
