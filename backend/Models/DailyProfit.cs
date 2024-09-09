@@ -4,17 +4,15 @@ using MongoDB.Bson.Serialization.IdGenerators;
 
 namespace backend.Models
 {
-    public class Order
+    public class DailyProfit
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
-     public  string Id { get; set; }
-        public string type { get; set; }
-        public string status { get; set; }
+        public string id { get; set; }
+        public DateOnly DateOnly { get; set; }
 
-        public List<Item> items { get; set; }
-
-
+        public double amount { get; set; }
 
     }
 }
+

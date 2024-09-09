@@ -33,6 +33,59 @@ namespace backend.Controllers
             return Json(jsonResult);
         }
 
+        [HttpPost("CreateOrder")]
+        public IActionResult CreateOrder([FromBody] JsonElement jsonElement)
+        {
+            // Convert the JSON element to a JSON string
+            string jsonString = jsonElement.GetRawText();
+
+            // Parse the JSON string to a BsonDocument
+            BsonDocument document = BsonDocument.Parse(jsonString);
+
+            // Get the MongoDB collection (e.g., "Orders" instead of "User")
+            var collection = _database.GetCollection<BsonDocument>("Orders");
+
+            // Insert the document into the collection
+            collection.InsertOne(document);
+
+            // Optionally, return the inserted document's ID or success message
+            return Ok(new { message = "Order created successfully", orderId = document["_id"].ToString() });
+        }
+
+
+
+        [HttpGet("PrintOrders")]
+        public IActionResult PrintOrders()
+        {
+            // Get the MongoDB collection
+            var collection = _database.GetCollection<BsonDocument>("Orders");
+
+            // Retrieve all documents (orders) from the collection
+            var orders = collection.Find(new BsonDocument()).ToList();
+
+            // Loop through each order and print the order details and item descriptions to the console
+            foreach (var order in orders)
+            {
+                Console.WriteLine($"Order ID: {order["_id"]}");
+                Console.WriteLine($"Type: {order["type"]}");
+                Console.WriteLine($"Status: {order["status"]}");
+                Console.WriteLine("Items:");
+
+                var items = order["items"].AsBsonArray;
+                foreach (var item in items)
+                {
+                    Console.WriteLine($"\tItem Name: {item["ItemName"]}");
+                    Console.WriteLine($"\tDescription: {item["Description"]}");
+                    Console.WriteLine($"\tPrice: {item["price"]}");
+                    Console.WriteLine();
+                }
+            }
+
+            // Return a simple success message
+            return Ok("Orders printed to console.");
+        }
+
+
         [HttpGet("GetOrdersinProcess")]
         public IActionResult GetOrdersinProcess()
         {
@@ -53,6 +106,8 @@ namespace backend.Controllers
             // Return the data as JSON
             return Json(jsonResult);
         }
+
+
 
 
 
