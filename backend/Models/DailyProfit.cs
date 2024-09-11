@@ -10,7 +10,7 @@ namespace backend.Models
         [BsonRepresentation(BsonType.ObjectId)]
         public string id { get; set; }
         public DateOnly DateOnly { get; set; }
-        int x=9;
+     
 
         public double amount { get; set; }
 
