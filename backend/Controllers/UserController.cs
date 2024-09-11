@@ -26,6 +26,9 @@ namespace backend.Controllers
             var collection = _database.GetCollection<BsonDocument>("User");
             var documents = collection.Find(new BsonDocument()).ToList();
 
+
+           
+
             // Convert documents to JSON
             var jsonResult = documents.Select(doc => doc.ToJson()).ToList();
 
