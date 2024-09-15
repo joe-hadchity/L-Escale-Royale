@@ -5,6 +5,7 @@ using MongoDB.Bson;
 using System.Diagnostics;
 using System.Text.Json;
 using Microsoft.AspNetCore.Identity.Data;
+using backend.Services;
 
 namespace backend.Controllers
 {
@@ -13,11 +14,12 @@ namespace backend.Controllers
     {
         private readonly ILogger<UserController> _logger;
         private readonly IMongoDatabase _database;
-
-        public UserController(ILogger<UserController> logger, IMongoDatabase database)
+        private readonly GlobalService _globalService;
+        public UserController(ILogger<UserController> logger, IMongoDatabase database, GlobalService globalService)
         {
             _logger = logger;
             _database = database;
+            _globalService = globalService;
         }
 
         public IActionResult Index()
@@ -162,6 +164,7 @@ namespace backend.Controllers
             {
                 return NotFound("No matching documents found.");
             }
+            _globalService.username = user.username;
 
             // Return the matching user
             return Ok(user);

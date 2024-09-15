@@ -1,4 +1,5 @@
 using backend;
+using backend.Services;
 using MongoDB.Driver;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,6 +14,10 @@ builder.Services.Configure<DatabaseSettings>(
 // Register MongoClient with specific connection string
 builder.Services.AddSingleton<IMongoClient>(s =>
     new MongoClient("mongodb+srv://joehadchity:J1j2j3j4@escale-royale-cluster.lann0.mongodb.net/?retryWrites=true&w=majority&authSource=admin&authMechanism=SCRAM-SHA-1&appName=escale-royale-cluster"));
+
+
+builder.Services.AddSingleton<GlobalService>(); // Register GlobalService
+
 
 // Register IMongoDatabase
 builder.Services.AddSingleton(s =>
