@@ -7,6 +7,17 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(builder =>
+    {
+        builder.WithOrigins("http://localhost", "https://localhost") // Allows any port on localhost
+               .AllowAnyMethod()    // Allows any HTTP method (GET, POST, etc.)
+               .AllowAnyHeader()    // Allows any HTTP headers
+               .AllowCredentials(); // Allows credentials (optional)
+    });
+});
+
 // Configure MongoDB settings
 builder.Services.Configure<DatabaseSettings>(
     builder.Configuration.GetSection(nameof(DatabaseSettings)));

@@ -11,7 +11,7 @@ namespace backend.Models
      public  string Id { get; set; }
         public string type { get; set; }
 
-        
+        public string dateofOrder { get; set; }
 
 
         public string ordernumber { get; set; }
@@ -22,6 +22,10 @@ namespace backend.Models
         public string tablenumber {  get; set; }
 
         public double totalprice { get; set; }
+
+        public int grossNumber { get; set; }
+
+
 
     }
 }

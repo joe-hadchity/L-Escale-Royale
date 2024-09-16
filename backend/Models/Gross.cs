@@ -11,10 +11,11 @@ namespace backend.Models
 
         public double totalGross { get; set; }
 
-        public DateTime dateofGrossPay { get; set; }
+        public string dateofGrossPay { get; set; }
 
+        public string status { get; set; }
 
-
-
+        public int grossNumber { get; set; }
     }
 }
+    
