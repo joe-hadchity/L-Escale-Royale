@@ -241,6 +241,7 @@ namespace backend.Controllers
         //"ItemName": "Cheeseburger",
         //"Description": "A juicy beef patty topped with melted cheese, lettuce, and tomato.",
         //"price": 8.99,
+        //"priceDelivery":8,
         //"Type":"1",
         //"Ingredients": ["Beef", "Cheese", "Lettuce", "Tomato", "Bun"]
         //}

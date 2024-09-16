@@ -9,6 +9,8 @@ namespace backend.Services
         private readonly IMongoDatabase _database;
         public  string username { get; set; } = "N/A";
 
+        
+
         public GlobalService(IMongoDatabase database)
         {
             _database = database;

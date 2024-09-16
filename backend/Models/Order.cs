@@ -10,11 +10,18 @@ namespace backend.Models
         [BsonRepresentation(BsonType.ObjectId)]
      public  string Id { get; set; }
         public string type { get; set; }
+
+        
+
+
+        public string ordernumber { get; set; }
         public string status { get; set; }
 
         public List<Item> items { get; set; }
 
+        public string tablenumber {  get; set; }
 
+        public double totalprice { get; set; }
 
     }
 }

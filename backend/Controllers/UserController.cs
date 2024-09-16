@@ -153,7 +153,7 @@ namespace backend.Controllers
             }
 
             // Get the collection from the database
-            var collection = _database.GetCollection<User>("User");
+                var collection = _database.GetCollection<User>("User");
             var filter = Builders<User>.Filter.And(
                 Builders<User>.Filter.Eq("username", loginRequest.Username),
                 Builders<User>.Filter.Eq("pin", loginRequest.Pin)
